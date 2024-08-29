@@ -12,7 +12,7 @@ import Notes from '../Components/Notes';
 import Todos from '../Components/Todos';
 
 
-const AddAJobApplication = ({ navigation, route, type }) => {
+const AddRecord = ({ navigation, route, type }) => {
 
   /* those states are vital because we will reuse this component in three screens */
   const itemEditable = ((!type) || type === 'edit') ? true : false;
@@ -165,4 +165,4 @@ const AddAJobApplication = ({ navigation, route, type }) => {
   );
 };
 
-export default AddAJobApplication;
+export default AddRecord;

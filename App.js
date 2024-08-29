@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import EditJobApplication from './Screens/EditJobApplication';
-import AddAJobApplication from './Screens/AddAJobApplication';
+import AddRecord from './Screens/AddRecord';
 import JobRecords from './Screens/JobRecords';
 import Home from './Screens/Home';
 import React, { useEffect, useState, useRef } from 'react';
@@ -94,7 +94,7 @@ export default function App() {
   const AppStack = (
     <>
       <Stack.Screen name="Home" component={GradientWrapper(Home)} options={{ headerShown: false }} />
-      <Stack.Screen name="AddAJobApplication" component={GradientWrapper(AddAJobApplication)} />
+      <Stack.Screen name="AddRecord" component={GradientWrapper(AddRecord)} />
       <Stack.Screen name="JobApplicationDetail" component={GradientWrapper(JobApplicationDetail)} />
       <Stack.Screen name="EditJobApplication" component={GradientWrapper(EditJobApplication)} />
       <Stack.Screen name="JobRecords" component={GradientWrapper(JobRecords)} />

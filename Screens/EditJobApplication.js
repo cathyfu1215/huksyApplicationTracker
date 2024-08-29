@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, Pressable } from 'react-native'
-import AddAJobApplication from './AddAJobApplication.js';
+import AddRecord from './AddRecord.js';
 import styles from '../styleHelper.js';
 import PressableButton from '../Components/PressableButton.js';
 import { useEffect } from 'react';
@@ -47,7 +47,7 @@ function EditJobApplication(props) {
       }, []);
       
       return(
-        <AddAJobApplication navigation={props.navigation} route={props.route} type='edit'/>
+        <AddRecord navigation={props.navigation} route={props.route} type='edit'/>
       );
      
      

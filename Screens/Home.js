@@ -11,6 +11,8 @@ import Feather from '@expo/vector-icons/Feather';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { LinearGradient } from 'expo-linear-gradient';
+import AddRecord from './AddRecord';
+import Entypo from '@expo/vector-icons/Entypo';
 
 const Tab = createBottomTabNavigator();
 
@@ -39,19 +41,16 @@ function Home() {
         component={GradientWrapper(JobRecords)}
         options={({ navigation, route }) => ({
           tabBarButton: (props) => <MyTabButton {...props} navigation={navigation} name="JobRecords" logo={<FontAwesome name="list-ul" size={24} color="black" />} />,
-          headerRight: () => (
-            <AddEntryButton
-              type="AddAJobApplication"
-              name={
-                <View style={styles.addEntryView}>
-                  <Feather name="plus" size={24} color="black" />
-                  <FontAwesome name="list-ul" size={24} color="black" />
-                </View>
-              }
-              navigation={navigation}
-              route={route}
-            />
-          ),
+        })}
+      />
+      <Tab.Screen
+        name="Add"
+        component={GradientWrapper(AddRecord)}
+        options={({ navigation, route }) => ({
+          tabBarButton: (props) => <MyTabButton {...props} navigation={navigation}
+          name="AddRecord"
+          logo={<Entypo name="circle-with-plus" size={24} color="black" />}
+        />,
         })}
       />
       <Tab.Screen
