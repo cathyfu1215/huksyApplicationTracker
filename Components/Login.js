@@ -64,18 +64,17 @@ function Login(props) {
     }
   return (
     <View style={{margin:10}}>
-        <Text>log in</Text>
-        <Text>Email Address</Text>
-        <TextInput style={{borderWidth: 1, borderColor: 'black',marginTop:10,height:'15%',margin:10}}
+        <Text style={{marginVertical:10, fontWeight:'bold'}}>Email Address</Text>
+        <TextInput style={{borderWidth: 1, borderColor: 'black',marginTop:10,height:40,margin:10, borderRadius:10}}
         value={email} onChangeText={(text)=>setEmail(text)}/>
-        <Text>Password</Text>
-        <TextInput  style={{borderWidth: 1, borderColor: 'black',marginTop:10,height:'15%',margin:10}}
+        <Text style={{marginVertical:10, fontWeight:'bold'}}>Password</Text>
+        <TextInput  style={{borderWidth: 1, borderColor: 'black',marginTop:10,height:40,margin:10, borderRadius:10}}
         value={password} onChangeText={(text)=>setPassword(text)} secureTextEntry={true}/>
         <PressableButton pressedFunction={handleLogin}><Text>Log In</Text></PressableButton>
         <PressableButton pressedFunction={jumpToSignup}><Text>New User? Create an account</Text></PressableButton>
         <View style={{marginTop:20,height:'20%'}}>
-        <Text>Forget Password?</Text>
-        <TextInput  value={resetEmail} onChangeText={setResetEmail} style={{borderWidth: 1, borderColor: 'black',height:'60%',margin:10}}/>
+        <Text style={{marginVertical:10, fontWeight:'bold'}}>Forget Password?</Text>
+        <TextInput  value={resetEmail} onChangeText={setResetEmail} style={{borderWidth: 1, borderColor: 'black',height:40,borderRadius:10, margin:10}}/>
         <PressableButton pressedFunction={handleForgetPassword}><Text>send reset link</Text></PressableButton>
         </View>
         

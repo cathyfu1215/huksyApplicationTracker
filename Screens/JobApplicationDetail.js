@@ -1,13 +1,10 @@
 import React from 'react'
-import { View, Text, Pressable } from 'react-native'
 import AddRecord from './AddRecord.js';
-import styles from '../styleHelper.js';
 import PressableButton from '../Components/PressableButton.js';
 import { useEffect } from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 function JobApplicationDetail(props) {
-  //console.log('route.params in jobapplicationdetail', props.route.params);
 
     function editHandler() {
         props.navigation.navigate('EditJobApplication', {data: props.route.params.data});

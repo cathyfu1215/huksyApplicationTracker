@@ -5,9 +5,7 @@ import JobRecords from './JobRecords';
 import Achievements from './Achievements';
 import Setting from './Setting';
 import MyTabButton from '../Components/MyTabButton';
-import AddEntryButton from '../Components/AddEntryButton';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import Feather from '@expo/vector-icons/Feather';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -44,7 +42,7 @@ function Home() {
         })}
       />
       <Tab.Screen
-        name="Add"
+        name="AddRecord"
         component={GradientWrapper(AddRecord)}
         options={({ navigation, route }) => ({
           tabBarButton: (props) => <MyTabButton {...props} navigation={navigation}
