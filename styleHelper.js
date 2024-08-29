@@ -19,10 +19,10 @@ export default styles = StyleSheet.create({
       borderRadius: 5,
       alignItems: 'center',
       alignSelf: 'center',
-      margin:5,
+      margin:7,
       padding:7,
       marginRight:10,
-      marginTop:10,
+      
     },
     buttonText:{
       color: 'white',

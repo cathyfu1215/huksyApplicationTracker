@@ -14,7 +14,7 @@ function JobApplicationDetail(props) {
           headerRight: () => {
             return (
               <PressableButton pressedFunction={editHandler} >
-                <FontAwesome name="pencil" size={24} color="black" />
+                <FontAwesome name="pencil" size={20} color="black" />
               </PressableButton>
             );
           },
