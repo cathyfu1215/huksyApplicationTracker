@@ -6,6 +6,7 @@ import { fetchNotes } from '../Firebase/firebaseHelper';
 import { auth } from '../Firebase/firebaseSetup';
 import PressableButton from './PressableButton';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import Entypo from '@expo/vector-icons/Entypo';
 
 
 
@@ -56,6 +57,7 @@ function Notes(props) {
     <View style={{marginTop:10, marginBottom:10}}>
       <NoteList data={notes} jobApplicationRecordId={props.jobApplicationRecordId} />
       <PressableButton pressedFunction={handleAddNote} disabled={props.type === 'detail'}>
+      <Entypo name="plus" size={24} color="black" />
       <FontAwesome name="pencil-square-o" size={24} color="black" />
       </PressableButton>
     </View>

@@ -4,6 +4,9 @@ import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import TodoList from './TodoList';
 import { fetchTodos } from '../Firebase/firebaseHelper';
 import { auth } from '../Firebase/firebaseSetup';
+import  PressableButton  from './PressableButton';
+import Entypo from '@expo/vector-icons/Entypo';
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 
 
 
@@ -51,7 +54,10 @@ function Todos(props) {
       <Text style={{fontSize:12}}>You can add a notification for each Todo.</Text>
     <View style={{marginTop:10, marginBottom:10}}>
       <TodoList data={todos} jobApplicationRecordId={props.jobApplicationRecordId} />
-      <Button title='Add a Todo' style={{ backgroundColor: 'lightblue', margin: 10, borderRadius: 10, marginBottom: 20,}} onPress={handleAddTodo} disabled={props.type === 'detail'} />
+      <PressableButton pressedFunction={handleAddTodo} disabled={props.type === 'detail'}>
+      <Entypo name="plus" size={24} color="black" />
+      <FontAwesome6 name="list-check" size={24} color="black" />
+      </PressableButton>
     </View>
     </ScrollView>
   );
