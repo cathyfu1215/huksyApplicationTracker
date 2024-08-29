@@ -15,7 +15,7 @@ export default styles = StyleSheet.create({
       justifyContent: 'center',
     },
     button:{
-      backgroundColor: 'lightgrey',
+      backgroundColor: 'lightgreen',
       borderRadius: 5,
       alignItems: 'center',
       alignSelf: 'center',

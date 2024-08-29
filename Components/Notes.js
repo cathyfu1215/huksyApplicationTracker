@@ -4,6 +4,9 @@ import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import NoteList from './NoteList';
 import { fetchNotes } from '../Firebase/firebaseHelper';
 import { auth } from '../Firebase/firebaseSetup';
+import PressableButton from './PressableButton';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
+
 
 
 
@@ -52,7 +55,9 @@ function Notes(props) {
       <Text style={{fontSize:12}}>Notes with no image added will have a default image.</Text>
     <View style={{marginTop:10, marginBottom:10}}>
       <NoteList data={notes} jobApplicationRecordId={props.jobApplicationRecordId} />
-      <Button title='Add a Note' style={{ backgroundColor: 'lightblue', margin: 10, borderRadius: 10 }} onPress={handleAddNote} disabled={props.type === 'detail'} />
+      <PressableButton pressedFunction={handleAddNote} disabled={props.type === 'detail'}>
+      <FontAwesome name="pencil-square-o" size={24} color="black" />
+      </PressableButton>
     </View>
     </ScrollView>
   );
