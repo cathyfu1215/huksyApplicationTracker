@@ -22,6 +22,7 @@ export default styles = StyleSheet.create({
       margin:5,
       padding:7,
       marginRight:10,
+      marginTop:10,
     },
     buttonText:{
       color: 'white',
