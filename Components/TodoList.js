@@ -1,17 +1,19 @@
 import React from 'react';
-import { Text, ScrollView, SafeAreaView, View, StyleSheet } from 'react-native';
-import { Pressable } from 'react-native';
-import { useEffect, useState } from 'react';
+import { Text, View, StyleSheet, Alert, Pressable } from 'react-native';
+import { CheckBox } from 'react-native-elements';
+import { useNavigation } from '@react-navigation/native';
 import { deleteTodo } from '../Firebase/firebaseHelper';
 import { auth } from '../Firebase/firebaseSetup';
-import { useNavigation } from '@react-navigation/native';
-import { Alert } from 'react-native';
 import Feather from '@expo/vector-icons/Feather';
+import { useState } from 'react';
+import { updateTodo } from '../Firebase/firebaseHelper';
 
 function TodoList({ data, jobApplicationRecordId }) {
   const navigation = useNavigation();
 
   function TodoLine({ item }) {
+    const [checked, setChecked] = useState(false);
+
     const handleDeleteTodo = () => {
       Alert.alert(
         'Warning',
@@ -27,17 +29,32 @@ function TodoList({ data, jobApplicationRecordId }) {
           },
         ]
       );
-    }
+    };
+
+    const handleToggleCheck = async () => {
+      const newCheckedStatus = !checked;
+      setChecked(newCheckedStatus);
+      await updateTodo(
+        auth.currentUser.uid,
+        jobApplicationRecordId,
+        item.id,
+        newCheckedStatus
+      );
+    };
 
     return (
       <View style={styles.itemContainer}>
-        <View style={styles.todoLineContainer}>
-          <Text style={styles.todoText}>{item.text}</Text>
-          <Pressable style={styles.deleteButton} onPress={handleDeleteTodo}>
-            <Feather name="trash-2" size={24} color="black" />
-          </Pressable>
-        </View>
+      <View style={styles.todoLineContainer}>
+        <CheckBox
+          checked={checked}
+          onPress={handleToggleCheck}
+        />
+        <Text style={styles.todoText}>{item.text}</Text>
+        <Pressable style={styles.deleteButton} onPress={handleDeleteTodo}>
+          <Feather name="trash-2" size={24} color="black" />
+        </Pressable>
       </View>
+    </View>
     );
   }
 

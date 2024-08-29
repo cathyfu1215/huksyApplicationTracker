@@ -34,6 +34,7 @@
     "react-native-chart-kit": "^6.12.0",
     "react-native-collapsible": "^1.6.1",
     "react-native-dropdown-picker": "^5.4.6",
+    "react-native-elements": "^3.4.3",
     "react-native-gesture-handler": "~2.16.1",
     "react-native-maps": "1.14.0",
     "react-native-ratings": "^8.1.0",

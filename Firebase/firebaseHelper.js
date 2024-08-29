@@ -245,3 +245,17 @@ export const deleteTodo = async (uid,jobApplicationRecordId,todoid) => {
     console.error("Error deleting Todo: ", error);
   }
 };
+
+
+// Function to update the todo item in the database
+export const updateTodo = async (uid, jobApplicationRecordId, todoId, checked) => {
+  try {
+    const todoRef = doc(database, 'users', uid, 'jobApplicationRecords', jobApplicationRecordId, 'todos', todoId);
+    await updateDoc(todoRef, {
+      checked: checked,
+    });
+    console.log(`Todo with id: ${todoId} updated to checked: ${checked}`);
+  } catch (error) {
+    console.error('Error updating todo: ', error);
+  }
+};
