@@ -1,20 +1,18 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Alert, Pressable, TouchableOpacity, SafeAreaView, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
+import { View, Text, TextInput, Alert, TouchableOpacity, ScrollView } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import SaveButton from '../Components/SaveButton';
 import CancelButton from '../Components/CancelButton';
-import { addJobApplication, updateJobApplication } from '../Firebase/firebaseHelper';
+import { addJobApplication, updateJobApplication, updateUser } from '../Firebase/firebaseHelper';
 import styleHelper from '../styleHelper';
 import { Rating } from 'react-native-ratings';
 import styles from '../styleHelper';
 import { auth } from '../Firebase/firebaseSetup'; 
 import Notes from '../Components/Notes';
 import Todos from '../Components/Todos';
-
+import {increment } from 'firebase/firestore'; 
 
 const AddRecord = ({ navigation, route, type }) => {
-
-  /* those states are vital because we will reuse this component in three screens */
   const itemEditable = ((!type) || type === 'edit') ? true : false;
   const isEditMode = type && (type === 'edit');
   const isDetailMode = type && (type === 'detail');
@@ -40,10 +38,44 @@ const AddRecord = ({ navigation, route, type }) => {
     setPreferenceScore(rating);
   }
 
+  const handleStatusChange = async (newStatus) => {
+    setStatus(newStatus);
+    const uid = auth.currentUser.uid;
+    let updatedData = {};
+
+    switch (newStatus) {
+      case 'In Progress':
+        updatedData = { numJobsSaved: increment(1) };
+        break;
+      case 'Applied':
+        updatedData = { numJobsApplied: increment(1) };
+        break;
+      case 'Interviewing':
+        updatedData = { numJobsInterviewed: increment(1) };
+        break;
+      case 'Offer':
+        updatedData = { numJobsOffered: increment(1) };
+        break;
+      case 'Rejected':
+        updatedData = { numJobsRejected: increment(1) };
+        break;
+      default:
+        break;
+    }
+
+    try {
+      await updateUser(uid, updatedData);
+    } catch (error) {
+      console.error("Error updating user status: ", error);
+    }
+  };
+
   const handleSave = async () => {
     if (companyName && positionName && preferenceScore && status && date) {
-      navigation.popToTop();
+      Alert.alert('Success', 'Record saved successfully');
+      navigation.goBack();
       try {
+        await handleStatusChange(status); // update user status no matter it is adding or editing
         if (isEditMode) {
           await updateJobApplication(auth.currentUser.uid, route.params.data.id, companyName, positionName, preferenceScore, status, date);
         } else {
@@ -146,13 +178,10 @@ const AddRecord = ({ navigation, route, type }) => {
           />
         )}
 
-
-        
         {isEditMode && <Notes type='edit' jobApplicationRecordId={route.params.data.id} />}
         {isDetailMode && <Notes type='detail' jobApplicationRecordId={route.params.data.id} />}
         {isEditMode && <Todos type='edit' jobApplicationRecordId={route.params.data.id} />}
         {isDetailMode && <Todos type='detail' jobApplicationRecordId={route.params.data.id} />}
-
 
         {itemEditable && <View style={styleHelper.saveCancelContainer}>
           <SaveButton onPress={handleSave} />

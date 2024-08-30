@@ -115,6 +115,18 @@ export const fetchUser = async (uid) => {
 };
 
 
+//use this function to update user's data, for example, # of jobs saved, applied, interviewed, offered, rejected
+export const updateUser = async (uid, updatedData) => {
+  try {
+    const userRef = doc(database, 'users', uid);
+    await updateDoc(userRef, updatedData);
+    console.log("User successfully updated!, uid: ", uid);
+  } catch (error) {
+    console.error("Error updating the user: ", error);
+  }
+};
+
+
 
 export const addNote = async (uid, jobApplicationRecordId, text, uri) => {
   try {
