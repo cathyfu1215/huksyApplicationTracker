@@ -55,7 +55,7 @@ function Achievements() {
                 containerStyle={{ backgroundColor: 'grey' }}
               />
             </View>
-            <View style={{ flex: 2, flexDirection: 'column', marginTop: 20, marginLeft: -50 }}>
+            <View style={{ flex: 2, flexDirection: 'column', marginTop: 20, marginLeft: -110 }}>
               <Text style={{ fontWeight: 'bold', fontSize: 20 }}>{auth.currentUser.displayName || 'default name'}</Text>
               <Text style={{ fontSize: 15 }}>{auth.currentUser.email}</Text>
             </View>

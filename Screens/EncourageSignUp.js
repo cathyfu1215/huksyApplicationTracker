@@ -2,7 +2,6 @@ import React from 'react'
 import { View, Text, SafeAreaView } from 'react-native'
 import { Pressable } from 'react-native'
 import { Badge } from '@rneui/themed';
-import { Avatar } from '@rneui/themed';
 import { Image } from 'react-native';
 
 

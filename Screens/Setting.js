@@ -33,9 +33,7 @@ function Setting() {
     });
   }
 
-  function handleChangeProfilePicture() {
-    console.log('will be implemented later');
-  }
+
 
   return (
     <View style={{ flex: 1, flexDirection: 'column', alignItems: 'center' }}>
@@ -56,7 +54,7 @@ function Setting() {
       </View>
       <View style={{ flex: 1, margin: 20, marginTop: -200, alignItems: 'center' }}>
         <View style={{marginTop:10, marginBottom:10}}>
-        <TextInput value={name} onChangeText={setName} style={{ borderWidth: 1, borderColor: 'grey', padding: 10,width:200, borderRadius: 10 }} />
+        <TextInput value={name} onChangeText={setName} style={{ borderWidth: 1, borderColor: 'grey', padding: 10,width:200, borderRadius: 10, marginBottom:20 }} />
         <PressableButton pressedFunction={handleChangeName}><Text style={{ fontWeight: 'bold', fontSize: 20 }}>change name</Text></PressableButton>
         </View>
         <View style={{marginTop:10, marginBottom:10}}>
