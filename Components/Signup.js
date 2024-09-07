@@ -12,6 +12,7 @@ function Signup(props) {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const [showPasswordHint, setShowPasswordHint] = useState(false);
 
     function jumpToLogin() {
         props.navigation.replace('Login');
@@ -61,6 +62,12 @@ function Signup(props) {
                 const errorMessage = error.message;
                 alert(errorCode, errorMessage);
             });
+
+            
+    }
+
+    function togglePasswordHint() {
+        setShowPasswordHint(!showPasswordHint);
     }
 
     return (
@@ -72,7 +79,11 @@ function Signup(props) {
                 value={email}
             />
             <Text style={{marginVertical:10, fontWeight:'bold'}}>Password</Text>
-            <Text style={{ margin: 5 }}>A strong password will contain at least an uppercase, a lowercase, a number, and a special character from "@$!%*?&".</Text>
+            <PressableButton pressedFunction={togglePasswordHint} style={{marginTop:10}}><Text>How to Create a Strong Password?</Text></PressableButton>
+                {showPasswordHint && (
+                    <Text style={{ margin: 10, color: 'blue' }}>
+                        A strong password should contain at least one uppercase letter, one lowercase letter, one number, and one special character from '@$!%*?&', and should be at least 6 characters long.
+                        </Text>)}
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                 <TextInput
                     style={{ borderWidth: 1, borderColor: 'black', marginTop: 10,marginRight:10, height: 40, flex: 1, borderRadius: 10 }}
