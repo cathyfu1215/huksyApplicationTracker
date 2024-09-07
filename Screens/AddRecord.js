@@ -81,7 +81,7 @@ const AddRecord = ({ navigation, route, type }) => {
           await addJobApplication(auth.currentUser.uid, companyName, positionName, preferenceScore, status, date);
         }
         Alert.alert('Success', 'Record saved successfully');
-        navigation.replace('Home', { refresh: true,screen: 'JobRecords'});
+        navigation.navigate('Home', { refresh: true,screen: 'JobRecords'});
       } catch (error) {
         console.error("Error adding/editing document: ", error);
       }
