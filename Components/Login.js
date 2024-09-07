@@ -4,6 +4,7 @@ import PressableButton from './PressableButton';
 import { TextInput } from 'react-native';
 import { auth } from '../Firebase/firebaseSetup';
 import { signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 function Login(props) {
    const [email, setEmail] = useState('');
@@ -12,6 +13,7 @@ function Login(props) {
    const [showPassword, setShowPassword] = useState(false);
 
    function handleForgetPassword() {
+    // before sending the password reset email, we need to check if the email is in the right format
        const emailPattern = /\S+@\S+\.\S+/;
        if (!emailPattern.test(resetEmail)) {
            alert('Email is not in the right format');
@@ -46,7 +48,7 @@ function Login(props) {
                const errorCode = error.code;
                const errorMessage = error.message;
                console.log(errorCode, errorMessage);
-               alert('Invalid email or password, please try again');
+               alert('Invalid email or password, please try again.If you forget the password, please enter your email address and click on the forget password link below.');
            });
    }
 
@@ -67,13 +69,14 @@ function Login(props) {
                    secureTextEntry={!showPassword}
                />
                <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
-                   <Text>{showPassword ? 'Hide' : 'Show'}</Text>
+                   <Text>{showPassword ? <Ionicons name="eye-off" size={24} color="black" /> : <Ionicons name="eye" size={24} color="black" />}</Text>
                </TouchableOpacity>
            </View>
            <PressableButton pressedFunction={handleLogin}><Text>Log In</Text></PressableButton>
            <PressableButton pressedFunction={jumpToSignup}><Text>New User? Create an account</Text></PressableButton>
            <View style={{ marginTop: 20, height: '20%' }}>
                <Text style={{ marginVertical: 10, fontWeight: 'bold' }}>Forget Password?</Text>
+               <Text>Enter your email address: </Text>
                <TextInput
                    value={resetEmail}
                    onChangeText={setResetEmail}

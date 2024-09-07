@@ -4,6 +4,7 @@ import PressableButton from './PressableButton';
 import { auth } from '../Firebase/firebaseSetup';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { addUser } from '../Firebase/firebaseHelper';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 function Signup(props) {
     const [email, setEmail] = useState('');
@@ -80,7 +81,7 @@ function Signup(props) {
                     secureTextEntry={!showPassword}
                 />
                 <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
-                    <Text>{showPassword ? 'Hide' : 'Show'}</Text>
+                    <Text>{showPassword ? <Ionicons name="eye-off" size={24} color="black" />: <Ionicons name="eye" size={24} color="black" />}</Text>
                 </TouchableOpacity>
             </View>
             <Text style={{marginVertical:10}}>Confirm Password</Text>
@@ -92,12 +93,18 @@ function Signup(props) {
                     secureTextEntry={!showConfirmPassword}
                 />
                 <TouchableOpacity onPress={() => setShowConfirmPassword(!showConfirmPassword)}>
-                    <Text>{showConfirmPassword ? 'Hide' : 'Show'}</Text>
+                    <Text>{showConfirmPassword ? <Ionicons name="eye-off" size={24} color="black" />: <Ionicons name="eye" size={24} color="black" />}</Text>
                 </TouchableOpacity>
             </View>
             <View style={{marginTop:20}}>
+            <View>
+            <View>
             <PressableButton pressedFunction={handleRegister}><Text>Register</Text></PressableButton>
+            </View>
+            <View style={{marginTop:10}}>
             <PressableButton pressedFunction={jumpToLogin}><Text>Already Registered? Login</Text></PressableButton>
+            </View>
+            </View>
             </View>
         </View>
     );

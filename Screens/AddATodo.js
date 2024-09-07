@@ -46,6 +46,8 @@ function AddATodo(props) {
             <Text style={{ margin: 5, fontWeight: 20, fontWeight: 'bold', marginTop:10 }}>Remind me in :</Text>
             <View style={{margin: 20, alignContent:'center', alignItems:'center'}}>
                 
+
+                {/* we can add more "alert after ... time" options here */}
                 <View style={{flexDirection:'row'}}>
                 <NotificationManager notificationContent={text} time={5}/>
                 <NotificationManager notificationContent={text} time={1800}/>
