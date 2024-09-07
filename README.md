@@ -12,6 +12,7 @@ As a fellow computer science student, I know firsthand the stress and chaos of t
 Let's simplify your job search and land that dream job together!
 
 ### Video demo of the Minimal Viable Product
+[to be edited]
 
 ### Features
 - Authentication
@@ -37,6 +38,9 @@ Let's simplify your job search and land that dream job together!
 - Language: JavaScript
 - Front End: React Native
 - Backend and Database: Google Firebase
+
+### How to use this repo
+[to be edited]
 
 ### Data Model
 
