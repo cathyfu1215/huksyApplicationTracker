@@ -5,6 +5,7 @@ Tired of losing track of your job applications? Meet HuskyJobApplicationTracker,
 As a fellow computer science student, I know firsthand the stress and chaos of the job search. That's why I built HuskyApplicationTracker. With our app, you can:
 
 * Organize your applications in one place.
+* Assign a preference score for each job.
 * Keep track of notes and to-dos for each job.
 * Analyze your progress and identify trends.
 
@@ -13,7 +14,29 @@ Let's simplify your job search and land that dream job together!
 ### Video demo of the Minimal Viable Product
 
 ### Features
+- Authentication
+  - Sign up
+  - Log in
+  - Password Reset
+- Browse all Job Application Records
+  - sort the records by last update or by preference score
+  - filter the records by the company's name or the position
+- Job Records
+    - Add a job record
+    - Edit a job record
+    - Delete a job record
+- Add/Delete a note to one job record
+    - take a photo as the note
+- Add/Delete a todo item to one job record
+    - set up a reminder for this todo item
+    - toggle the status of the todo item
+- Achievement Page
+    - See data analysis of one's job applications
 
+### Tech Stack
+- Language: JavaScript
+- Front End: React Native
+- Backend and Database: Google Firebase
 
 ### Data Model
 
