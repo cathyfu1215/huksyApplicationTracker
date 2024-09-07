@@ -56,7 +56,6 @@ function Achievements() {
 
           <View style={{ borderWidth: 2, borderColor: 'grey', margin: 20, padding: 10, width: '90%', flex: 1 }}>
             <Text style={{ fontWeight: 'bold', fontSize: 17, margin: 5 }}>User Statistics</Text>
-            <Text>Number of Jobs Saved: {user.numJobsSaved || 0}</Text>
             <Text>Number of Jobs Applied: {user.numJobsApplied || 0}</Text>
             <Text>Number of Jobs Interviewed: {user.numJobsInterviewed || 0}</Text>
             <Text>Number of Jobs Offered: {user.numJobsOffered || 0}</Text>
