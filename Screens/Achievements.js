@@ -27,9 +27,16 @@ function Achievements() {
   //otherwise, we use the data from the database
   const allDataIsZero = user.numJobsSaved === 0 && user.numJobsApplied === 0 && user.numJobsInterviewed === 0 && user.numJobsOffered === 0 && user.numJobsRejected === 0;
 
+  // pending means we have applied for the job but haven't heard back
+  // interview means we have at least one interview with the company, but there is no decision yet
+  // offer means we have received an offer from the company
+  // rejection means we have been rejected by the company
+  // if we add them up, it should be the total number of jobs we have applied for
+
+ 
   const data = [
     { name: 'Pending', population: allDataIsZero ? 100 : (user.numJobsApplied - user.numJobsInterviewed) || 0, color: 'rgba(131, 167, 234, 1)', legendFontColor: '#7F7F7F', legendFontSize: 15 },
-    { name: 'Interview', population: allDataIsZero ? 20 : user.numJobsInterviewed || 0, color: '#FFFF00', legendFontColor: '#7F7F7F', legendFontSize: 15 },
+    { name: 'Interview', population: allDataIsZero ? 20 : user.numJobsInterviewed - user.numJobsOffered - user.numJobsRejected || 0, color: '#FFFF00', legendFontColor: '#7F7F7F', legendFontSize: 15 },
     { name: 'Offer', population: allDataIsZero ? 5 : user.numJobsOffered || 0, color: 'rgb(0, 255, 0)', legendFontColor: '#7F7F7F', legendFontSize: 15 },
     { name: 'Rejection', population: allDataIsZero ? 15 : user.numJobsRejected || 0, color: '#F00', legendFontColor: '#7F7F7F', legendFontSize: 15 },
   ];

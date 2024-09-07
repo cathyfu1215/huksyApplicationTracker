@@ -59,10 +59,6 @@ function Setting() {
         <TextInput value={name} onChangeText={setName} style={{ borderWidth: 1, borderColor: 'grey', padding: 10,width:200, borderRadius: 10 }} />
         <PressableButton pressedFunction={handleChangeName}><Text style={{ fontWeight: 'bold', fontSize: 20 }}>change name</Text></PressableButton>
         </View>
-        <View style={{marginTop:10, marginBottom:10, alignItems:'center'}}>
-        <PressableButton pressedFunction={handleChangeProfilePicture}><Text style={{ fontWeight: 'bold', fontSize: 20 }}>change profile picture</Text></PressableButton>
-        <Text>* Will be implemented later</Text>
-        </View>
         <View style={{marginTop:10, marginBottom:10}}>
         <PressableButton pressedFunction={handleLogout}><Text style={{ fontWeight: 'bold', fontSize: 20 }}>Log out</Text></PressableButton>
         </View>

@@ -43,6 +43,13 @@ const AddRecord = ({ navigation, route, type }) => {
     const uid = auth.currentUser.uid;
     let updatedData = {};
 
+    // the implementation here is quite naive
+    // because we are not checking the previous status
+    // we reply on the user to update the status correctly and step by step
+    // for example: if the user is in the 'In Progress' status, they can only move to 'Applied' status
+    // if the user is in the 'Applied' status, they can only move to 'Interviewed' status
+    // otherwise, the count in the achievement page will be inaccurate
+
     switch (newStatus) {
       case 'In Progress':
         updatedData = { numJobsSaved: increment(1) };
