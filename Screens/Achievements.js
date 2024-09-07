@@ -96,34 +96,6 @@ function Achievements() {
             </View>
           </View>
 
-          <View style={{ borderWidth: 2, borderColor: 'grey', margin: 20, padding: 10, width: '90%' }}>
-            <Text style={{ fontWeight: 'bold', fontSize: 17, margin: 5 }}>Collectables</Text>
-            <Text style={{ fontSize: 12, marginTop: 5, marginBottom:5 }}>*The logic of Collectables will be inplemented later.</Text>
-            <View style={{ flexDirection: 'row', alignContent: 'space-evenly' }}>
-              <Avatar
-                size={60}
-                rounded
-                source={{ uri: 'https://1000logos.net/wp-content/uploads/2016/10/Apple-Logo-500x281.jpg' }}
-                title="apple"
-                containerStyle={{ backgroundColor: 'grey' }}
-              />
-              <Avatar
-                size={60}
-                rounded
-                source={{ uri: 'https://1000logos.net/wp-content/uploads/2016/10/Batman-Logo-2011-500x281.png' }}
-                title="batman"
-                containerStyle={{ backgroundColor: 'grey' }}
-              />
-              <Avatar
-                size={60}
-                rounded
-                source={{ uri: 'https://1000logos.net/wp-content/uploads/2018/08/Hogwarts-Logo-500x281.jpg' }}
-                title="wizard"
-                containerStyle={{ backgroundColor: 'grey' }}
-              />
-            </View>
-          </View>
-
          
         </View>
       </ScrollView>
