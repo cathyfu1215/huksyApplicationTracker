@@ -22,7 +22,7 @@ export const addJobApplication = async (uid,companyName, positionName, preferenc
 // Function to get all job applications from the database
 export const fetchJobApplications = async (uid) => {
     try {
-      const q = query(collection(database,'users',uid,'jobApplicationRecords'), orderBy('date', 'desc'));
+      const q = query(collection(database,'users',uid,'jobApplicationRecords'),orderBy('date', 'desc'));
       const querySnapshot = await getDocs(q);
       const jobApplications = [];
       querySnapshot.forEach((doc) => {

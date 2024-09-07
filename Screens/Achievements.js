@@ -28,10 +28,10 @@ function Achievements() {
   const allDataIsZero = user.numJobsSaved === 0 && user.numJobsApplied === 0 && user.numJobsInterviewed === 0 && user.numJobsOffered === 0 && user.numJobsRejected === 0;
 
   const data = [
-    { name: 'Applied', population: allDataIsZero ? 100 : user.numJobsApplied || 0, color: 'rgba(131, 167, 234, 1)', legendFontColor: '#7F7F7F', legendFontSize: 15 },
-    { name: 'Interviewed', population: allDataIsZero ? 20 : user.numJobsInterviewed || 0, color: '#FFFF00', legendFontColor: '#7F7F7F', legendFontSize: 15 },
-    { name: 'Offered', population: allDataIsZero ? 5 : user.numJobsOffered || 0, color: 'rgb(0, 255, 0)', legendFontColor: '#7F7F7F', legendFontSize: 15 },
-    { name: 'Rejected', population: allDataIsZero ? 15 : user.numJobsRejected || 0, color: '#F00', legendFontColor: '#7F7F7F', legendFontSize: 15 },
+    { name: 'Pending', population: allDataIsZero ? 100 : (user.numJobsApplied - user.numJobsInterviewed) || 0, color: 'rgba(131, 167, 234, 1)', legendFontColor: '#7F7F7F', legendFontSize: 15 },
+    { name: 'Interview', population: allDataIsZero ? 20 : user.numJobsInterviewed || 0, color: '#FFFF00', legendFontColor: '#7F7F7F', legendFontSize: 15 },
+    { name: 'Offer', population: allDataIsZero ? 5 : user.numJobsOffered || 0, color: 'rgb(0, 255, 0)', legendFontColor: '#7F7F7F', legendFontSize: 15 },
+    { name: 'Rejection', population: allDataIsZero ? 15 : user.numJobsRejected || 0, color: '#F00', legendFontColor: '#7F7F7F', legendFontSize: 15 },
   ];
 
   return (
@@ -56,7 +56,6 @@ function Achievements() {
 
           <View style={{ borderWidth: 2, borderColor: 'grey', margin: 20, padding: 10, width: '90%', flex: 1 }}>
             <Text style={{ fontWeight: 'bold', fontSize: 17, margin: 5 }}>User Statistics</Text>
-            <Text style={{ fontSize: 12, marginTop: 5, marginBottom:5 }}>*The logic of updating user statistics will be inplemented later.</Text>
             <Text>Number of Jobs Saved: {user.numJobsSaved || 0}</Text>
             <Text>Number of Jobs Applied: {user.numJobsApplied || 0}</Text>
             <Text>Number of Jobs Interviewed: {user.numJobsInterviewed || 0}</Text>

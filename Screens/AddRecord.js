@@ -50,7 +50,7 @@ const AddRecord = ({ navigation, route, type }) => {
       case 'Applied':
         updatedData = { numJobsApplied: increment(1) };
         break;
-      case 'Interviewing':
+      case 'Interviewed':
         updatedData = { numJobsInterviewed: increment(1) };
         break;
       case 'Offer':
@@ -72,8 +72,7 @@ const AddRecord = ({ navigation, route, type }) => {
 
   const handleSave = async () => {
     if (companyName && positionName && preferenceScore && status && date) {
-      Alert.alert('Success', 'Record saved successfully');
-      navigation.goBack();
+     
       try {
         await handleStatusChange(status); // update user status no matter it is adding or editing
         if (isEditMode) {
@@ -81,6 +80,8 @@ const AddRecord = ({ navigation, route, type }) => {
         } else {
           await addJobApplication(auth.currentUser.uid, companyName, positionName, preferenceScore, status, date);
         }
+        Alert.alert('Success', 'Record saved successfully');
+        navigation.navigate('JobRecords', { refresh: true });
       } catch (error) {
         console.error("Error adding/editing document: ", error);
       }
