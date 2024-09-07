@@ -1,5 +1,14 @@
 ## Project Name: Husky Job Application Tracker
 
+Tired of losing track of your job applications? Meet HuskyJobApplicationTracker, your personal job hunting assistant.
+
+As a fellow computer science student, I know firsthand the stress and chaos of the job search. That's why I built HuskyApplicationTracker. With our app, you can:
+
+* Organize your applications in one place.
+* Keep track of notes and to-dos for each job.
+* Analyze your progress and identify trends.
+
+Let's simplify your job search and land that dream job together!
 
 ### Video demo of the Minimal Viable Product
 
@@ -30,42 +39,42 @@ The organization of the collections and documents:
 * Please see details of the documents below.
 
 ##### (Document)User
-email (String)
-name (String)
-profilePhoto (blob)
-numJobsSaved (int)
-numJobsApplied (int)
-numInterview (int)
-numAcceptance (int)
-numRejection (int)
-achievementLogs (list of Strings)
-badgesEarned (list of blobs)
-jobApplicationRecords (collection)
+- email (String)
+- name (String)
+- profilePhoto (blob)
+- numJobsSaved (int)
+- numJobsApplied (int)
+- numInterview (int)
+- numAcceptance (int)
+- numRejection (int)
+- achievementLogs (list of Strings)
+- badgesEarned (list of blobs)
+- jobApplicationRecords (collection)
 
 ##### (Document)JobApplicationRecord
-company (String)
-postion (String)
-location (String/location object)
-preferenceScore (int, [1,10])
-URL (String,optional)
-status (Enum):
-    In Progress
-    Applied
-    Interviewing
-    Interviewed
-    Offer
-    Offer Accepted
-    Rejected
-notes (Collection,optional)
-todos (Collection,optional)
-lastUpdated (datetime)
+- company (String)
+- postion (String)
+- location (String/location object)
+- preferenceScore (int, [1,10])
+- URL (String,optional)
+- status (Enum):
+    - In Progress
+    - Applied
+    - Interviewing
+    - Interviewed
+    - Offer
+    - Offer Accepted
+    - Rejected
+- notes (Collection,optional)
+- todos (Collection,optional)
+- lastUpdated (datetime)
 
 ##### (Document) Note
-photo (blob)
-text (String)
+- photo (blob)
+- text (String)
 ##### (Document) Todo
-text (String)
-completed (boolean)
+- text (String)
+- completed (boolean)
 
 ### Credits
 
