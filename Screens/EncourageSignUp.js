@@ -22,9 +22,8 @@ function EncourageSignUp(props) {
         
         <View style={{marginTop:20, marginBottom:30}}>
          <Text style={{fontSize:20}}>Dear User,</Text>
-         <Text style={{fontSize:15}}>Please sign up/log in to see the data analysis,</Text>
-         <Text style={{fontSize:15}}>and have your achievement recorded!</Text>
-         <Text style={{fontSize:15}}>You will win badges and start to collect fun tokens!</Text>
+         <Text style={{fontSize:15, marginTop:10}}>Please sign up to see the data analysis, collect</Text>
+         <Text style={{fontSize:15, marginTop:10}}>badges and have your achievement recorded!</Text>
          </View>
 
          <View style={{margin:10, marginTop:20}}>
@@ -33,27 +32,16 @@ function EncourageSignUp(props) {
          
          
          <View style={{margin:10, marginTop:20}}>
+          {/* The status here just indicate the color of the badges */}
          <Badge textStyle={{fontWeight:'bold'}} value="Applied for 100 jobs" status="error" />
          <Badge textStyle={{fontWeight:'bold'}} value="Interviewed for 10 jobs" status="success" />
+         <Badge textStyle={{fontWeight:'bold'}} value="Got 10 Offers" status="warning" />
+         <Badge textStyle={{fontWeight:'bold'}} value="100 days using this app" status="primary" />
          </View>
          </View>
          
          
          <View style={{flexDirection:'row', margin:10, marginTop:20}}>
-         <Avatar
-            size={60}
-            rounded
-            source={{ uri: 'https://1000logos.net/wp-content/uploads/2016/10/Batman-Logo-2011-500x281.png' }}
-            title="batman"
-            containerStyle={{ backgroundColor: 'grey' }}
-          ></Avatar>
-           <Avatar
-            size={60}
-            rounded
-            source={{ uri: 'https://1000logos.net/wp-content/uploads/2018/08/Hogwarts-Logo-500x281.jpg' }}
-            title="wizard"
-            containerStyle={{ backgroundColor: 'grey' }}
-          ></Avatar>
           </View>
           </View>
           
