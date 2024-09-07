@@ -1,5 +1,8 @@
 /**
- * This notification manager is used to set a notification for a todo 1h later.
+ * This notification manager is used to set a notification for a todo.
+ * It has a text property and a time property.
+ * The text property is the content of the notification
+ * The time property is the time after which the notification will be sent (in seconds)
  */
 import React from 'react'
 import { View, Text, Pressable } from 'react-native'
@@ -15,8 +18,7 @@ function NotificationManager(props) {
                 body: props.notificationContent,
               },
               trigger: {
-                // seconds: 5, // for testing
-                seconds: 3600, // 1 hour
+                seconds: props.time, 
               },
             });
             console.log('notification scheduled:', identifier);
@@ -42,9 +44,24 @@ function NotificationManager(props) {
 
       return (
         <View style={{alignItems: 'center'}}>
-            <Pressable style={{backgroundColor:'lightyellow',padding:10,margin:10, width: 200}} onPress={scheduleNotificationHandler}>
-                <Text style={{color:'black',alignSelf:'center'}}>1h Reminder</Text>
-            </Pressable>
+            <Pressable 
+                style={{backgroundColor: 'lightyellow', padding: 8,margin:10, width: 100}} 
+                onPress={scheduleNotificationHandler}
+              >
+                {props.time >= 3600 ? (
+                  <Text style={{color: 'black', alignSelf: 'center'}}>
+                    {Math.round(props.time / 3600)} hours 
+                  </Text>
+                ) : props.time >= 300 ? (
+                  <Text style={{color: 'black', alignSelf: 'center'}}>
+                    {Math.round(props.time / 60)} minutes 
+                  </Text>
+                ) : (
+                  <Text style={{color: 'black', alignSelf: 'center'}}>
+                    {Math.round(props.time)} seconds 
+                  </Text>
+                )}
+             </Pressable>
         </View>
       )
 

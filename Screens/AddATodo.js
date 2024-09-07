@@ -4,14 +4,8 @@ import SaveButton from '../Components/SaveButton';
 import CancelButton from '../Components/CancelButton';
 import { auth } from '../Firebase/firebaseSetup';
 import { addTodo } from '../Firebase/firebaseHelper';
-// Notification Manger for the 1h reminder
 import NotificationManager from '../Components/NotificationManager';
-// Notification Manger for the 2h reminder
-import NotificationManager1 from '../Components/NotificationManager1';
-// Notification Manger for the 24h reminder
-import NotificationManager2 from '../Components/NotificationManager2';
-// Notification Manger for testing
-import NotificationManagerTest from '../Components/NotificationManagerTest';
+
 
 function AddATodo(props) {
     const [text, setText] = useState('');
@@ -48,11 +42,25 @@ function AddATodo(props) {
                 value={text}
                 onChangeText={setText}
             />
-            <View style={{margin: 20}}>
-                <NotificationManagerTest notificationContent={text}/>
-                <NotificationManager notificationContent={text}/>
-                <NotificationManager1 notificationContent={text}/>
-                <NotificationManager2 notificationContent={text}/>
+            <View>
+            <Text style={{ margin: 5, fontWeight: 20, fontWeight: 'bold', marginTop:10 }}>Remind me in :</Text>
+            <View style={{margin: 20, alignContent:'center', alignItems:'center'}}>
+                
+                <View style={{flexDirection:'row'}}>
+                <NotificationManager notificationContent={text} time={5}/>
+                <NotificationManager notificationContent={text} time={1800}/>
+                
+                </View>
+                <View style={{flexDirection:'row'}}>
+                <NotificationManager notificationContent={text} time={3600}/>
+                <NotificationManager notificationContent={text} time={7200}/>
+                
+                </View>
+                <View style={{flexDirection:'row'}}>
+                <NotificationManager notificationContent={text} time={86400}/>
+                <NotificationManager notificationContent={text} time={172800}/>
+                </View>
+            </View>
             </View>
             {isSaving && (
                 <View style={{ alignItems: 'center', margin: 10 }}>
