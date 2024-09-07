@@ -31,9 +31,9 @@ const GradientWrapper = (Component) => (props) => (
   </GradientScreen>
 );
 
-function Home() {
+function Home({route }) {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator initialRouteName={route.params?.screen || 'JobRecords'}>
       <Tab.Screen
         name="JobRecords"
         component={GradientWrapper(JobRecords)}
