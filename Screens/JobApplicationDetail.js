@@ -7,7 +7,7 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 function JobApplicationDetail(props) {
 
     function editHandler() {
-        props.navigation.navigate('EditJobApplication', {data: props.route.params.data});
+        props.navigation.replace('EditJobApplication', {data: props.route.params.data});
     }
     useEffect(() => {
         props.navigation.setOptions({

@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native';
 
+//color palettes: https://www.color-hex.com/color-palette/83785
+
 export default styles = StyleSheet.create({
     appContainer: {
       flex: 1,
@@ -15,7 +17,7 @@ export default styles = StyleSheet.create({
       justifyContent: 'center',
     },
     button:{
-      backgroundColor: 'lightgreen',
+      backgroundColor: '#afe689',
       borderRadius: 5,
       alignItems: 'center',
       alignSelf: 'center',

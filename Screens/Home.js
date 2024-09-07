@@ -16,7 +16,7 @@ const Tab = createBottomTabNavigator();
 
 const GradientScreen = ({ children }) => (
   <LinearGradient
-    colors={['#B0C4DE', '#FFFFFF']}
+    colors={['#5cc6a0', '#FFFFFF']}
     style={{ flex: 1 }}
   >
     <View style={{ flex: 1 }}>

@@ -35,7 +35,7 @@ Notifications.setNotificationHandler({
 
 const GradientScreen = ({ children }) => (
   <LinearGradient
-    colors={['#FFFFFF', '#4682B4']}
+    colors={['#FFFFFF', '#5cc6a0']}
     style={{ flex: 1 }}
   >
     <View style={{ flex: 1 }}>
@@ -72,9 +72,7 @@ export default function App() {
       console.log(notification);
     });
     responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
-      console.log("User has tapped the notification");
-      console.log('notification title:',response.notification.request.content.title);
-      console.log('notification body:',response.notification.request.content.body);  
+      console.log(response);
     });
     return () => {
       Notifications.removeNotificationSubscription(notificationListener.current);
