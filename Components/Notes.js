@@ -12,7 +12,7 @@ import Entypo from '@expo/vector-icons/Entypo';
 
 
 function Notes(props) {
-  //console.log('props in Notes', props); 
+  
   const [notes, setNotes] = useState([]);
   const navigation = useNavigation();
 
@@ -52,8 +52,9 @@ function Notes(props) {
   return (
     <ScrollView style={{ flex:1 ,margin: 10, borderColor: 'black', borderWidth: 1,minHeight:'25%',padding:5}}>
       <Text style={{fontWeight:'bold',fontSize:20}}>Notes</Text>
-      <Text style={{fontSize:12}}>You can browse/delete notes in the detail page, and add notes in the edit page.</Text>
-      <Text style={{fontSize:12}}>Notes with no image added will have a default image.</Text>
+      <Text style={{fontSize:12, marginVertical:5}}>• You can browse/delete notes in the detail page, and add notes in the edit page.</Text>
+      <Text style={{fontSize:12, marginVertical:5}}>• Notes with no image added will have a default image.</Text>
+      <Text style={{fontSize:12, marginVertical:5}}>• Click the image in a note to see it in full screen.</Text>
     <View style={{marginTop:10, marginBottom:10}}>
       <NoteList data={notes} jobApplicationRecordId={props.jobApplicationRecordId} />
       <PressableButton pressedFunction={handleAddNote} disabled={props.type === 'detail'}>
