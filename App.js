@@ -14,7 +14,7 @@ import { auth } from './Firebase/firebaseSetup';
 import AddANote from './Screens/AddANote';
 import AddATodo from './Screens/AddATodo';
 import ForgetPassword from './Components/ForgetPassword';
-
+import NoteImage from './Screens/NoteImage';
 
 import EncourageSignUp from './Screens/EncourageSignUp';
 
@@ -100,6 +100,7 @@ export default function App() {
       <Stack.Screen name="JobRecords" component={GradientWrapper(JobRecords)} />
       <Stack.Screen name="AddANote" component={GradientWrapper(AddANote)} />
       <Stack.Screen name="AddATodo" component={GradientWrapper(AddATodo)} />
+      <Stack.Screen name="NoteImage" component={GradientWrapper(NoteImage)} />
     </>
   );
 

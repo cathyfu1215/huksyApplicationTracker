@@ -51,7 +51,9 @@ function NoteList({ data, jobApplicationRecordId }) {
     return (
       <View style={styles.itemContainer}>
         <View style={styles.noteLineContainer}>
+          <Pressable onPress={() => navigation.navigate('NoteImage', { imageURL: imageURL?imageURL:'https://1000logos.net/wp-content/uploads/2022/02/Northeastern-Huskies-logo.png' })}>
           <Image source={{ uri: imageURL ? imageURL : 'https://1000logos.net/wp-content/uploads/2022/02/Northeastern-Huskies-logo.png', width: 50, height: 50 }} />
+          </Pressable>
           <Text style={styles.noteText}>{item.text}</Text>
           <Pressable style={styles.deleteButton} onPress={handleDeleteNote}>
             <Feather name="trash-2" size={24} color="black" />
