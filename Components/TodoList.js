@@ -1,3 +1,9 @@
+
+// This is very similer to the noteList File.
+// We have a todoLine item that displays the text of a todo and whether it is checked or not.
+// We then map over the data array and render a TodoLine component for each todo.
+
+
 import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, Alert, Pressable } from 'react-native';
 import { CheckBox } from 'react-native-elements';

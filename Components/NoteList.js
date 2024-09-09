@@ -1,3 +1,11 @@
+
+// This file is the NoteList Component.
+// It contains a noteline component that displays the image and text of a note.
+// Then it simply maps over the notes array and renders a NoteLine component for each note.
+
+
+
+
 import React from 'react';
 import { Text, ScrollView, SafeAreaView, View, StyleSheet } from 'react-native';
 import { Pressable } from 'react-native';
@@ -17,7 +25,7 @@ function NoteList({ data, jobApplicationRecordId }) {
   function NoteLine({ item }) {
     const [imageURL, setImageURL] = useState("");
     if (!item.uri) {
-      //console.log('no uri in the note',item);
+      console.log('no uri in the note, use default image',item);
     } else {
       const reference = ref(storage, item.uri);
       useEffect(() => {
@@ -51,10 +59,13 @@ function NoteList({ data, jobApplicationRecordId }) {
     return (
       <View style={styles.itemContainer}>
         <View style={styles.noteLineContainer}>
+          {/* the image is clickable, it will navigate to the full screen of that image */}
           <Pressable onPress={() => navigation.navigate('NoteImage', { imageURL: imageURL?imageURL:'https://1000logos.net/wp-content/uploads/2022/02/Northeastern-Huskies-logo.png' })}>
           <Image source={{ uri: imageURL ? imageURL : 'https://1000logos.net/wp-content/uploads/2022/02/Northeastern-Huskies-logo.png', width: 50, height: 50 }} />
           </Pressable>
+
           <Text style={styles.noteText}>{item.text}</Text>
+          {/* the button to delete the note */}
           <Pressable style={styles.deleteButton} onPress={handleDeleteNote}>
             <Feather name="trash-2" size={24} color="black" />
           </Pressable>
@@ -64,7 +75,11 @@ function NoteList({ data, jobApplicationRecordId }) {
   }
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 0 }}>  
+    {/* problem here? */}
+    {/* There is an existing bug that sometimes happens: */}
+    {/* The NoteList component will be extremely long when adding a note to it,
+    so the other components below it get disappered */}
       {data.map(item => (
         <NoteLine key={item.id} item={item} />
       ))}
