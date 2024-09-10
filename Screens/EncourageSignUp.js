@@ -1,3 +1,11 @@
+// This is a simple screen that encourages the user to sign up. 
+// It shows the user some of the benefits of signing up and some of the badges they can earn.
+// Since in my design, the authentication information is also used as a primary key of the user record in the database,
+// users must register to use the app.
+
+
+
+
 import React from 'react'
 import { View, Text, SafeAreaView } from 'react-native'
 import { Pressable } from 'react-native'

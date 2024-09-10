@@ -1,3 +1,7 @@
+// This is the achievements screen. It shows the user's statistics, a pie chart and badges earned.
+// I am considering adding an activity log to show the user's recent activities.
+// We can definitely add more data analysis to this screen.
+
 import React, { useEffect, useState } from 'react';
 import { View, Text, ScrollView, SafeAreaView, Dimensions } from 'react-native';
 import { Avatar, Badge } from '@rneui/themed';

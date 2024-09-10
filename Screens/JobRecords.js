@@ -1,3 +1,9 @@
+// This is the screen that shows all the job applications that the user has saved
+// It is also the home screen of the app (first thing the user sees when they login or sign up)
+// The user can click on a job application to see more details about it
+// Whenever a job application is added or edited, the user will be redirected to this screen and see the updated list of job applications
+
+
 import React, { useState, useEffect } from 'react';
 import { SafeAreaView } from 'react-native';
 import ItemsList from '../Components/ItemList.js';

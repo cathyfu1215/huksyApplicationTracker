@@ -1,3 +1,6 @@
+// This is a simple full screen page to display the image that the user has uploaded.
+
+
 import React from 'react'
 import { View,Text,Image,Dimensions  } from 'react-native'
 import { SafeAreaView } from 'react-native';

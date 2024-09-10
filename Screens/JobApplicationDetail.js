@@ -1,3 +1,8 @@
+// In this screen we reuse the addRcord file, making the save button and cancel button not visible
+// Since the todo items need to be toggled often, we will make the todo items editable
+// We make the notes field not editable, but the delete button is visible to users
+
+
 import React from 'react'
 import AddRecord from './AddRecord.js';
 import PressableButton from '../Components/PressableButton.js';

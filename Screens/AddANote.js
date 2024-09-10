@@ -1,3 +1,12 @@
+// This is the screen that add the note
+// If user decide to add a picture with the note, we need to upload the picture to the firebase storage
+// we also display the preview of the picture to the user
+
+// If user decide not to add a picture, we will set the imageURI to null
+// and in the notelist, we will display a default image (a husky logo) for the note
+
+
+
 import React, { useState } from 'react';
 import { View, Text, TextInput, ActivityIndicator, Alert } from 'react-native';
 import ImageManager from '../Components/ImageManager';

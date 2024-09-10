@@ -1,3 +1,7 @@
+// This is the home screen that is in charge of the bottom navigation bar.
+// The default screen is the JobRecords screen, but the user can navigate to the AddRecord, Achievements, and Setting screens.
+// I also included a gradient background for the app in this file.
+
 import React from 'react';
 import { View, Text } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';

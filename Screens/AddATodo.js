@@ -1,3 +1,7 @@
+// This is the screen that add the todo item
+// user can set a reminder(local notification) for the todo item, choose from the options provided
+// they will be able to toggle the check box to mark the todo item as done/not done
+
 import React, { useState } from 'react';
 import { View, Text, TextInput, ActivityIndicator, Alert } from 'react-native';
 import SaveButton from '../Components/SaveButton';

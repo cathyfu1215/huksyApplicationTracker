@@ -1,3 +1,6 @@
+// In this screen we reuse the addRcord file, adding a deleteRecord button to the header
+
+
 import React from 'react'
 import { View, Text, Pressable } from 'react-native'
 import AddRecord from './AddRecord.js';

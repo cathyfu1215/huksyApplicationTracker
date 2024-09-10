@@ -1,3 +1,7 @@
+// This is the setting page where the user can change their name and log out
+// We will add more functionality to this page in the future
+
+
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput } from 'react-native';
 import { Avatar } from '@rneui/themed';
