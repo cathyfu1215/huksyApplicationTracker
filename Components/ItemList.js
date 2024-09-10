@@ -1,3 +1,8 @@
+// This is the list of all job application records
+// It renders each item(itemLine component) in the list as a PressableListItem
+// It also contains one filter text input and two buttons to sort the list by last update and preference score
+
+
 import React, { useEffect, useState } from 'react';
 import { Text, FlatList, SafeAreaView, View, TextInput } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
@@ -47,6 +52,7 @@ function ItemsList({ data, navigation }) {
     setSortedData(sorted);
   }
 
+  // Filter data by company name or position name, case insensitive
   function filterData(text) {
     setSearchText(text);
     const filtered = data.filter(item =>

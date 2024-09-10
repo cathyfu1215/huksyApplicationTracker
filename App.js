@@ -13,7 +13,6 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './Firebase/firebaseSetup'; 
 import AddANote from './Screens/AddANote';
 import AddATodo from './Screens/AddATodo';
-import ForgetPassword from './Components/ForgetPassword';
 import NoteImage from './Screens/NoteImage';
 
 import EncourageSignUp from './Screens/EncourageSignUp';
@@ -85,7 +84,6 @@ export default function App() {
       <Stack.Screen name="EncourageSignUp" component={GradientWrapper(EncourageSignUp)} options={{headerShown:false}} />
       <Stack.Screen name="Login" component={GradientWrapper(Login)} />
       <Stack.Screen name="Signup" component={GradientWrapper(Signup)} />
-      <Stack.Screen name="ForgetPassword" component={GradientWrapper(ForgetPassword)}  />
     </>
   );
 

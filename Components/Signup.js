@@ -1,3 +1,8 @@
+// The sign up screen, where the user can enter their email and password to create an account.
+// It also contains the logic of verifying the email address is valid,  password matches confirm password, and the password is strong enough.
+// It gives recommendations to the user how to set a strong password.
+
+
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
 import PressableButton from './PressableButton';

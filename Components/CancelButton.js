@@ -1,3 +1,5 @@
+// Reuseable cancel button component
+
 import React from 'react';
 import { Pressable, Text} from 'react-native';
 import styleHelper from '../styleHelper';

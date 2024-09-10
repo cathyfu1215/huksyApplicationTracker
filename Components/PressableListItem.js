@@ -1,3 +1,6 @@
+// a component that is a pressable list item that changes color when pressed
+
+
 import React from 'react'
 import { Pressable } from 'react-native';
 import styles from '../styleHelper.js';

@@ -1,3 +1,10 @@
+// The notes component, which displays list of notes for a job application record.
+// It contains a button to add notes.
+// It will be refreshed when a new note is added.
+// It contains a bug that when we add a new note, it became extremely long and the add note button is not visible.
+// (This bug happens occasionally, and I am working on fixing it.)
+
+
 import React, { useState, useEffect } from 'react';
 import { View, Text, Button, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';

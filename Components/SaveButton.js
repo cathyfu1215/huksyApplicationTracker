@@ -1,3 +1,5 @@
+// Save button component, reusable
+
 import React from 'react';
 import { Pressable, Text} from 'react-native';
 import styleHelper from '../styleHelper';

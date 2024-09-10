@@ -1,3 +1,7 @@
+// the todo list component that displays the list of todos for a job application record.
+// Its logic is very similar to the notes component.
+
+
 import React, { useState, useCallback } from 'react';
 import { View, Text, Button, ScrollView } from 'react-native';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';

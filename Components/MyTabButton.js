@@ -1,3 +1,6 @@
+// reusable tab button component, which gives feedback when pressed
+
+
 import React from 'react'
 import { View,Text } from 'react-native'
 import styles from '../styleHelper.js'

@@ -1,3 +1,7 @@
+// The login screen, where the user can enter their email and password to log in.
+// If the user forgets their password, they can enter their email address and click on the forget password link to receive a password reset email.
+// It verifies the email address is in the right format before making queries to the Firebase authentication.
+
 import { View, Text, Alert, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
 import PressableButton from './PressableButton';

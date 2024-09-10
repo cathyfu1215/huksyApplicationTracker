@@ -1,3 +1,5 @@
+// a reusable button component that is not a tab button nor a save/cancel button
+
 import React from 'react';
 import { Pressable } from 'react-native';
 import { View, Text } from 'react-native';

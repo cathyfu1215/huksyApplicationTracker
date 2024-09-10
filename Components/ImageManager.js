@@ -1,3 +1,7 @@
+// Image manager component to handle image selection and display, and pass the image URI to the parent component
+// It asks for permission to access the camera, and then launches the camera
+
+
 import React, { useEffect } from 'react'
 import { View, Text } from 'react-native'
 import PressableButton  from './PressableButton';

@@ -1,10 +1,12 @@
+// This is a reusable component that is a button
+// It has a text that is passed as a prop
+// When pressed, it navigates to the screen that is passed as a prop, and it will give a visual feedback to the user
+
 import React from 'react'
 import { View, Text, Pressable } from 'react-native';
 
 
 
-
-/* This button is for either add an entry to activity or diet */
 
 function AddEntryButton(props) {
   function handleAddEntry(){
