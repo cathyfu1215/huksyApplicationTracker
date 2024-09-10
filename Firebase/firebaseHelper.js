@@ -153,20 +153,40 @@ export const addNote = async (uid, jobApplicationRecordId, text, uri) => {
 
 
 
-export const fetchNotes = async (uid, jobApplicationRecordId) => {
+// export const fetchNotes = async (uid, jobApplicationRecordId) => {
+//   try {
+//     const q = query(collection(database, 'users', uid, 'jobApplicationRecords', jobApplicationRecordId, 'notes'));
+//     const querySnapshot = await getDocs(q);
+//     const notes = [];
+//     querySnapshot.forEach((doc) => {
+//       notes.push({ id: doc.id, ...doc.data() });
+//     });
+//     return notes;
+//   } catch (error) {
+//     console.error("Error fetching documents: ", error);
+//     throw error; // Ensure the error is thrown to be caught in the calling function
+//   }
+// };
+
+
+// Function to get all notes from the database and sync them in real-time
+export const fetchNotes = (uid, jobApplicationRecordId, setData) => {
   try {
     const q = query(collection(database, 'users', uid, 'jobApplicationRecords', jobApplicationRecordId, 'notes'));
-    const querySnapshot = await getDocs(q);
-    const notes = [];
-    querySnapshot.forEach((doc) => {
-      notes.push({ id: doc.id, ...doc.data() });
+    return onSnapshot(q, (querySnapshot) => {
+      const notes = [];
+      querySnapshot.forEach((doc) => {
+        notes.push({ id: doc.id, ...doc.data() });
+      });
+      setData(notes);
     });
-    return notes;
   } catch (error) {
     console.error("Error fetching documents: ", error);
-    throw error; // Ensure the error is thrown to be caught in the calling function
   }
 };
+
+
+
 
 export const deleteNote = async (uid,jobApplicationRecordId,noteid) => {
   try {
@@ -177,61 +197,7 @@ export const deleteNote = async (uid,jobApplicationRecordId,noteid) => {
   }
 };
 
-// Function to save the company's location to the corresponding job application record
-export const saveJobApplicationLocation = async (uid, jobApplicationRecordId, location) => {
-  try {
-    await setDoc(doc(database, 'users', uid, 'jobApplicationRecords', jobApplicationRecordId), {
-      location: location,
-    }, { merge: true });
-    console.log("Company location successfully saved!");
-  } catch (error) {
-    console.error("Error saving company location: ", error);
-  }
-};
 
-// Function to save the user's home location to the database
-export const saveHomeLocation = async (uid, jobApplicationRecordId, location) => {
-  try {
-    await setDoc(doc(database, 'users', uid, 'jobApplicationRecords', jobApplicationRecordId), {
-      homeLocation: location,
-    }, { merge: true });
-    console.log("Home location successfully saved!");
-  } catch (error) {
-    console.error("Error saving home location: ", error);
-  }
-};
-
-// Function to get the company's location from the corresponding job application record
-export const fetchJobApplicationLocation = async (uid, jobApplicationRecordId) => {
-  try {
-    const docRef = doc(database, 'users', uid, 'jobApplicationRecords', jobApplicationRecordId);
-    const docSnap = await getDoc(docRef);
-    if (docSnap.exists()) {
-      return docSnap.data().location;
-    } else {
-      console.warn("No such document!");
-      return null;
-    }
-  } catch (error) {
-    console.error("Error fetching company location: ", error);
-  }
-};
-
-// Function to get the user's home location from the database
-export const fetchHomeLocation = async (uid, jobApplicationRecordId) => {
-  try {
-    const docRef = doc(database, 'users', uid, 'jobApplicationRecords', jobApplicationRecordId);
-    const docSnap = await getDoc(docRef);
-    if (docSnap.exists()) {
-      return docSnap.data().homeLocation;
-    } else {
-      console.warn("No such document!");
-      return null;
-    }
-  } catch (error) {
-    console.error("Error fetching home location: ", error);
-  }
-};
 
 // Function for adding a new todo to the database
 export const addTodo = async (uid, jobApplicationRecordId, text) => {
@@ -244,19 +210,19 @@ export const addTodo = async (uid, jobApplicationRecordId, text) => {
   }
 };
 
-// Function for fetching all todos from the database
-export const fetchTodos = async (uid, jobApplicationRecordId) => {
+// Function for fetching all todos from the database and sync them in real-time
+export const fetchTodos = (uid, jobApplicationRecordId, setData) => {
   try {
     const q = query(collection(database, 'users', uid, 'jobApplicationRecords', jobApplicationRecordId, 'todos'));
-    const querySnapshot = await getDocs(q);
-    const todos = [];
-    querySnapshot.forEach((doc) => {
-      todos.push({ id: doc.id, ...doc.data() });
+    return onSnapshot(q, (querySnapshot) => {
+      const todos = [];
+      querySnapshot.forEach((doc) => {
+        todos.push({ id: doc.id, ...doc.data() });
+      });
+      setData(todos);
     });
-    return todos;
   } catch (error) {
     console.error("Error fetching Todos: ", error);
-    throw error;
   }
 };
 

@@ -2,7 +2,7 @@
 // Its logic is very similar to the notes component.
 
 
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { View, Text, Button, ScrollView } from 'react-native';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import TodoList from './TodoList';
@@ -18,35 +18,20 @@ function Todos(props) {
   const [todos, setTodos] = useState([]);
   const navigation = useNavigation();
 
-  const getData = async () => {
-    try {
-      const data = await fetchTodos(auth.currentUser.uid, props.jobApplicationRecordId);
-      return data;
-    } catch (error) {
-      console.error("Error fetching todos: ", error);
-      return [];
-    }
-  };
+  useEffect(() => {
+    const unsubscribe = fetchTodos(auth.currentUser.uid, props.jobApplicationRecordId, setTodos);
+    return () => unsubscribe(); // Clean up the subscription on unmount
+  }, [props.jobApplicationRecordId]);
 
   useFocusEffect(
     useCallback(() => {
-      let isActive = true;
-
-      const fetchData = async () => {
-        const data = await getData();
-        if (isActive && data && data.length > 0) {
-          setTodos(data);
-        }
-      };
-
-      fetchData();
-
-      return () => {
-        isActive = false;
-      };
-    }, [props.jobApplicationRecordId])
+      const unsubscribe = navigation.addListener('focus', () => {
+        fetchTodos(auth.currentUser.uid, props.jobApplicationRecordId, setTodos);
+      });
+      return unsubscribe;
+    }, [navigation])
   );
-
+  
   const handleAddTodo = () => {
     navigation.navigate('AddATodo', { jobApplicationRecordId: props.jobApplicationRecordId });
   };

@@ -19,49 +19,18 @@ function Notes(props) {
   const [notes, setNotes] = useState([]);
   const navigation = useNavigation();
 
-  const getData = async () => {
-    try {
-      const data = await fetchNotes(auth.currentUser.uid, props.jobApplicationRecordId);
-      return data;
-    } catch (error) {
-      console.error("Error fetching notes: ", error);
-      return [];
-    }
-  };
-
-  const fetchData = async () => {
-    const data = await getData();
-    if (data && data.length > 0) {
-      setNotes(data);
-    }
-  };
-
   useEffect(() => {
-    //isActive: A flag to ensure the component is still mounted when updating the state.
-    let isActive = true;
-
-    if (isActive) {
-      fetchData();
-    }
-
-    return () => {
-      //Cleanup Function: Sets isActive to false when the component unmounts to prevent state updates on an unmounted component.
-      isActive = false;
-    };
+    const unsubscribe = fetchNotes(auth.currentUser.uid, props.jobApplicationRecordId, setNotes);
+    return () => unsubscribe(); // Clean up the subscription on unmount
   }, [props.jobApplicationRecordId]);
 
   useEffect(() => {
-    // adds an event listener for the focus event on the navigation object.
-    // The focus event is triggered whenever the screen comes into focus (i.e., when the user navigates to this screen).
     const unsubscribe = navigation.addListener('focus', () => {
-      fetchData();
+      fetchNotes(auth.currentUser.uid, props.jobApplicationRecordId, setNotes);
     });
-
-// The useEffect hook can return a cleanup function. This function is executed when the component unmounts or before the effect runs again.
-// unsubscribe is a function returned by navigation.addListener. Calling unsubscribe removes the event listener.
-// This ensures that the event listener is properly cleaned up when the component unmounts, preventing potential memory leaks.
     return unsubscribe;
   }, [navigation]);
+
 
   const handleAddNote = () => {
     navigation.navigate('AddANote', { jobApplicationRecordId: props.jobApplicationRecordId });
