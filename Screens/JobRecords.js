@@ -13,17 +13,9 @@ import { auth } from '../Firebase/firebaseSetup.js';
 function JobRecords(props) {
   const [data, setData] = useState([]);
 
-  const getData = async () => {
-    try {
-      const jobApplications = await fetchJobApplications(auth.currentUser.uid);
-      setData(jobApplications);
-    } catch (error) {
-      console.error("Error fetching job records: ", error);
-    }
-  };
-
   useEffect(() => {
-    getData();
+    const unsubscribe = fetchJobApplications(auth.currentUser.uid, setData);
+    return () => unsubscribe(); // Clean up the subscription on unmount
   }, []);
 
   useEffect(() => {

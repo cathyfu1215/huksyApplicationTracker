@@ -24,9 +24,7 @@ function NoteList({ data, jobApplicationRecordId }) {
 
   function NoteLine({ item }) {
     const [imageURL, setImageURL] = useState("");
-    if (!item.uri) {
-      console.log('no uri in the note, use default image',item);
-    } else {
+    if (item.uri) {
       const reference = ref(storage, item.uri);
       useEffect(() => {
         getDownloadURL(reference)
@@ -75,7 +73,7 @@ function NoteList({ data, jobApplicationRecordId }) {
   }
 
   return (
-    <View style={{ flex: 0 }}>  
+    <View style={{ flex: 1 }}>  
     {/* problem here? */}
     {/* There is an existing bug that sometimes happens: */}
     {/* The NoteList component will be extremely long when adding a note to it,

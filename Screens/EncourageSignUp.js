@@ -22,7 +22,7 @@ function EncourageSignUp(props) {
 
   return (
     <SafeAreaView style={{ alignItems:'center', flexDirection:'column'}}>
-   
+        <View style={{marginTop:30}}>
         <Pressable onPress={jumpToSignUp}>
          <View style={{padding:10, margin: 10, borderWidth:2, borderColor:'grey', alignItems:'center'}}>
          <View style={{flexDirection:'column'}}>
@@ -53,6 +53,7 @@ function EncourageSignUp(props) {
           </View>
           
         </Pressable>
+        </View>
    </SafeAreaView>
   )
 }

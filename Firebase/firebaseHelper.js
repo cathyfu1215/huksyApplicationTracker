@@ -1,5 +1,5 @@
 import { database } from "./firebaseSetup";
-import { collection, getDoc, addDoc, getDocs, orderBy, query, deleteDoc, doc, updateDoc,setDoc} from 'firebase/firestore';
+import { collection, getDoc, addDoc, getDocs, orderBy, query, deleteDoc, doc, updateDoc,setDoc, onSnapshot} from 'firebase/firestore';
 import { Timestamp } from 'firebase/firestore';
 
 
@@ -20,19 +20,31 @@ export const addJobApplication = async (uid,companyName, positionName, preferenc
   };
 
 // Function to get all job applications from the database
-export const fetchJobApplications = async (uid) => {
-    try {
-      const q = query(collection(database,'users',uid,'jobApplicationRecords'),orderBy('date', 'desc'));
-      const querySnapshot = await getDocs(q);
+// Trying to use onSnapshot instead of getDocs to get real-time updates
+
+// Document: You can listen to a document with the onSnapshot() method. 
+// An initial call using the callback you provide creates a document snapshot immediately with the current contents of the single document. 
+// Then, each time the contents change, another call updates the document snapshot.
+
+export const fetchJobApplications = (uid, setData) => {
+  try {
+    const q = query(collection(database, 'users', uid, 'jobApplicationRecords'), orderBy('date', 'desc'));
+    return onSnapshot(q, (querySnapshot) => {
       const jobApplications = [];
       querySnapshot.forEach((doc) => {
         jobApplications.push({ id: doc.id, ...doc.data() });
       });
-      return jobApplications;
-    } catch (error) {
-      console.error("Error fetching documents: ", error);
-    }
-  };
+      setData(jobApplications);
+    });
+  } catch (error) {
+    console.error("Error fetching documents: ", error);
+  }
+};
+
+
+
+
+
 
   // Function to delete a job application from the database
   export const deleteJobApplication = async (uid,id) => {
