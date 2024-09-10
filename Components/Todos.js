@@ -23,11 +23,16 @@ function Todos(props) {
     return () => unsubscribe(); // Clean up the subscription on unmount
   }, [props.jobApplicationRecordId]);
 
+  // run a side effect when the screen comes into focus (i.e., when the user navigates to this screen).
   useFocusEffect(
+    //the function will only be recreated if one of the dependencies changes.
     useCallback(() => {
+      
+      // This line adds an event listener for the focus event on the navigation object. The focus event is triggered whenever the screen comes into focus.
       const unsubscribe = navigation.addListener('focus', () => {
         fetchTodos(auth.currentUser.uid, props.jobApplicationRecordId, setTodos);
       });
+      // The addListener method returns a function (unsubscribe) that can be called to remove the event listener. This is useful for cleaning up the event listener when the component unmounts or when the effect is re-run.
       return unsubscribe;
     }, [navigation])
   );
