@@ -14,6 +14,15 @@ Let's simplify your job search and land that dream job together!
 ### Video demo of the Minimal Viable Product
 [to be edited]
 
+### Screenshots
+| Image                                                              | Title      |
+|--------------------------------------------------------------------|-----------|
+| <img src="assets/records.jpg" alt="Records" height="560" width="320">| the job application records page   | 
+| <img src="assets/achievements.jpg" alt="Achievements" height="560" width="320">| the personal achievement page  | 
+| <img src="assets/detail1.jpg" alt="JobApplicationDetail" height="560" width="320"> | detail of the job application record  | 
+| <img src="assets/detail2.jpg" alt="NoteSection" height="560" width="320"> | the notes section    | 
+| <img src="assets/detail3.jpg" alt="TodoSection" height="560" width="320"> |  the todo items section   | 
+
 ### Features
 - Authentication
   - Sign up
