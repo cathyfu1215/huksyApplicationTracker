@@ -1,3 +1,10 @@
+// This file is reused from different screens:
+// 1. Add a job application record
+// 2. Display a job application record (contents are read only, except for deleting notes and todos)
+// 3. Edit a job application record (everything is editable)
+
+
+
 import React, { useState } from 'react';
 import { View, Text, TextInput, Alert, TouchableOpacity, ScrollView } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
@@ -13,9 +20,20 @@ import Todos from '../Components/Todos';
 import {increment } from 'firebase/firestore'; 
 
 const AddRecord = ({ navigation, route, type }) => {
+
+  // I used these states to tell what mode the user is in
+  // This decides how to render the screen
+  // For example, if the user is in the 'edit' mode, we will render the screen with all fields editable
+  // If the user is in the 'detail' mode, we will render the screen with all fields read only, except for deleting notes and todos
+  // If the user is in the 'add' mode, we will only render the the mandatory fields
+
+
   const itemEditable = ((!type) || type === 'edit') ? true : false;
   const isEditMode = type && (type === 'edit');
   const isDetailMode = type && (type === 'detail');
+
+
+  // below are the mandatory fields
 
   const [companyName, setCompanyName] = useState(route.params ? route.params.data.companyName : "");
   const [positionName, setPositionName] = useState(route.params ? route.params.data.positionName : "");
@@ -24,6 +42,7 @@ const AddRecord = ({ navigation, route, type }) => {
   const [date, setDate] = useState(route.params ? route.params.data.date.toDate() : new Date());
   const [showDatePicker, setShowDatePicker] = useState(false);
 
+  // below are the enum values for the status
   const items = [
     { label: 'In Progress', value: 'In Progress' },
     { label: 'Applied', value: 'Applied' },
@@ -34,10 +53,13 @@ const AddRecord = ({ navigation, route, type }) => {
     { label: 'Rejected', value: 'Rejected' }
   ];
 
+  // this marks if the user has rated their preference of the job application, from 1 to 10
   function ratingCompleted(rating) {
     setPreferenceScore(rating);
   }
 
+
+  // when the status of a job changes, we need to update the user's status in the backend
   const handleStatusChange = async (newStatus) => {
     setStatus(newStatus);
     const uid = auth.currentUser.uid;
@@ -78,6 +100,7 @@ const AddRecord = ({ navigation, route, type }) => {
   };
 
   const handleSave = async () => {
+    // we need all the mandatory fields to be filled in
     if (companyName && positionName && preferenceScore && status && date) {
      
       try {
@@ -186,11 +209,14 @@ const AddRecord = ({ navigation, route, type }) => {
           />
         )}
 
+        {/* we only display the notes and todos in the 'edit' and 'detail' mode */}
         {isEditMode && <Notes type='edit' jobApplicationRecordId={route.params.data.id} />}
         {isDetailMode && <Notes type='detail' jobApplicationRecordId={route.params.data.id} />}
         {isEditMode && <Todos type='edit' jobApplicationRecordId={route.params.data.id} />}
         {isDetailMode && <Todos type='detail' jobApplicationRecordId={route.params.data.id} />}
 
+
+        {/* we don't display the save button or the cancel button in the 'detail' mode */}
         {itemEditable && <View style={styleHelper.saveCancelContainer}>
           <SaveButton onPress={handleSave} />
           <CancelButton onPress={() => navigation.goBack()} />

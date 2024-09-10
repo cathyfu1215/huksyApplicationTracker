@@ -121,7 +121,7 @@ I hope it will help more students in the job hunt season!
 
 
 
-##### What's new in this version:
+### What's new in this version:
 - Improved readability of the code base, adding more comment
 - Added more layers of security: 
     - hide/display sign up/login page password input
