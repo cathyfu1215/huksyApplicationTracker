@@ -121,7 +121,8 @@ const AddRecord = ({ navigation, route, type }) => {
   };
 
   return (
-    <ScrollView contentContainerStyle={{ flexGrow: 1, paddingBottom: 350, margin: 10 }} bounces={false}>
+    <View style={{flex:1}}>
+    <ScrollView style={{flex:1}} contentContainerStyle={{ flexGrow: 1, paddingBottom: 350, margin: 10 }} bounces={false}>
       <View style={styles.container}>
         <Text style={styles.addEntryText}>Company *</Text>
         <TextInput
@@ -225,6 +226,7 @@ const AddRecord = ({ navigation, route, type }) => {
         <Text style={{paddingBottom:20}}>This is the end of our functionalities, expect more in the future!</Text>
       </View>
     </ScrollView>
+    </View>
   );
 };
 
