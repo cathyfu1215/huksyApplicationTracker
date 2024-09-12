@@ -12,7 +12,7 @@ As a fellow computer science student, I know firsthand the stress and chaos of t
 Let's simplify your job search and land that dream job together!
 
 ### Video demo of the Minimal Viable Product
-[to be edited]
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/gCP4KvoNVYw/0.jpg)](https://www.youtube.com/watch?v=gCP4KvoNVYw)
 
 ### Screenshots
 | Image                                                              | Title      |
