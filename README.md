@@ -21,7 +21,10 @@ Let's simplify your job search and land that dream job together!
 | <img src="assets/achievements.jpg" alt="Achievements" height="560" width="320">| the personal achievement page  | 
 | <img src="assets/detail1.jpg" alt="JobApplicationDetail" height="560" width="320"> | detail of the job application record  | 
 | <img src="assets/detail2.jpg" alt="NoteSection" height="560" width="320"> | the notes section    | 
+| <img src="assets/takenote.jpg" alt="AddNote" height="560" width="320"> |  add a note   | 
 | <img src="assets/detail3.jpg" alt="TodoSection" height="560" width="320"> |  the todo items section   | 
+| <img src="assets/todo1.jpg" alt="AddTodo" height="560" width="320"> |  add a todo   | 
+| <img src="assets/todo2.jpg" alt="Notification" height="560" width="320"> |  set a notification   | 
 
 ### Features
 - Authentication
