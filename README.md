@@ -52,7 +52,28 @@ Let's simplify your job search and land that dream job together!
 - Backend and Database: Google Firebase
 
 ### How to use this repo
-[to be edited]
+- navigate to the folder of your choice and clone this repo
+```
+ cd newFolder 
+ git clone https://github.com/cathyfu1215/huksyApplicationTracker.git
+
+```
+- navigate to the folder of this project and install all the dependencies
+```
+cd huksyApplicationTracker
+npm install
+```
+- use expo to open the project
+```
+npx expo start
+```
+
+- depends on android or iphone you are using:
+  - if you have iphone, please scan the QR code using your camera
+  - if you have android phone, please install Expo Go and scan the QR code using this app
+
+- voila!
+- Please provide feedback / bug reports to Cathy(fu.con@northeastern.edu) and she will appreciate this :D
 
 ### Data Model
 
